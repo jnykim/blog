@@ -1,5 +1,4 @@
-class PagesController < ApplicationController
-	class PagesController < ApplicationController
+class BlogpostsController < ApplicationController
 	def index
 		@blogposts = Blogpost.all
 	end
@@ -22,10 +21,29 @@ class PagesController < ApplicationController
 		end
 	end
 
+	def edit
+		@blogpost = Blogpost.find(params[:id])
+	end
+
+	def update
+		@blogpost = Blogpost.find(params[:id])
+
+		if @blogpost.update(blogpost_params)
+			redirect_to @blogpost
+		else
+			render :edit
+		end
+	end
+
+	def destroy
+		@blogpost = Blogpost.find(params[:id])
+		@blogpost.destroy
+
+		redirect_to root_path
+	end
+
 	private
 	def blogpost_params
 		params.require(:blogpost).permit(:title, :body)
 	end
-end
-
 end
