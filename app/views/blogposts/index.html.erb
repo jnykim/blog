@@ -5,8 +5,8 @@
 <ul>
 	<% @blogposts.each do |blogpost| %>
 		<li>
-			<%= link_to blogpost.title, blogpost %>
-			<%= blogpost.body %>
+			<%= link_to blogpost.title, blogpost %><br>
+			<%= truncate(blogpost.body, length:50, separator: " ", omission: "... (Read more)") %>
 		</li>
 	<% end %>
 </ul>

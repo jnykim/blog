@@ -2,6 +2,6 @@
 
 <p><%= @blogpost.body %></p>
 
-<%= link_to "Home", root_path %>
-<%= link_to "Edit", edit_blogpost_path(@blogpost) %>
+<%= link_to "Home", root_path %><br>
+<%= link_to "Edit", edit_blogpost_path(@blogpost) %><br>
 <%= link_to "Delete", blogpost_path(@blogpost), method: :delete %>
